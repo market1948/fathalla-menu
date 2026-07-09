@@ -478,8 +478,18 @@ color: #ffffff;
 @keyframes loadingPulse {
     0%, 100% { opacity: 1; transform: scale(1); }
     50% { opacity: 0.5; transform: scale(1.1); }
-}
-/* تنسيقات الوضع الليلي */
+    }
+    /* تنسيقات الوضع الليلي */
+
+    body {
+        background-color: #ffffff !important;
+        transition: background-color 0.3s ease;
+    }
+
+    body.dark-mode {
+        background-color: #121212 !important;
+        color: #ffffff !important;
+    }
     body.dark-mode {
         background-color: #121212 !important;
         color: #ffffff !important;
