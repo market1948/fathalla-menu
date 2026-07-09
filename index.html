@@ -516,7 +516,6 @@ color: #ffffff;
 
   <!-- Navigation -->
   <div class="nav-tabs">
-          <button class="nav-tab tab-salads active" onclick="showSection('salads')">✨االعروض</button>
     <button class="nav-tab tab-salads active" onclick="showSection('salads')">🥗 سلاطات</button>
     <button class="nav-tab tab-appetizers" onclick="showSection('appetizers')">🍟 مقبلات</button>
     <button class="nav-tab tab-pizza" onclick="showSection('pizza')">🍕 بيتزا</button>
@@ -880,4 +879,30 @@ color: #ffffff;
 </script>
 
 </body>
+    <script>
+    function toggleTheme() {
+        const body = document.body;
+        const btn = document.getElementById('theme-toggle');
+
+        body.classList.toggle('dark-mode');
+
+        if (body.classList.contains('dark-mode')) {
+            btn.innerText = '☀️';
+            localStorage.setItem('theme', 'dark'); 
+        } else {
+            btn.innerText = '🌙';
+            localStorage.setItem('theme', 'light'); 
+        }
+    }
+
+    window.addEventListener('DOMContentLoaded', (event) => {
+        const savedTheme = localStorage.getItem('theme');
+        const btn = document.getElementById('theme-toggle');
+
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            btn.innerText = '☀️';
+        }
+    });
+</script>
 </html>
