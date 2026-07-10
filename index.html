@@ -217,6 +217,47 @@ body {
     overflow: hidden;
 }
 
+/* تنسيقات زر الاتصال المباشر */
+.hotline-btn {
+    font-size: 2rem;
+    color: var(--gold);
+    font-weight: 900;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    display: inline-block;
+    padding: 10px 30px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 15px;
+    margin-top: 10px;
+    transition: transform 0.3s ease, background 0.3s ease;
+    text-decoration: none;
+}
+.hotline-btn:hover {
+    transform: scale(1.05);
+    background: rgba(255,255,255,0.2);
+}
+
+/* تنسيقات زر فيسبوك */
+.fb-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #1877F2;
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(24, 119, 242, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 10px;
+}
+.fb-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(24, 119, 242, 0.6);
+    color: #fff;
+}
+
 ::-webkit-scrollbar { width: 10px; }
 ::-webkit-scrollbar-track { background: var(--light); }
 ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 5px; }
@@ -430,7 +471,7 @@ body.dark-mode .barcode-font { color: #fff; }
         </div>
   </div>
 
-  <!-- Pizza Offers Section (الغرفة المستقلة) -->
+  <!-- Pizza Offers Section -->
   <div id="pizza-offers" class="section">
     <div class="section-header pizza-header">
       <h2>🍕 عروض البيتزا 1+1</h2>
@@ -451,7 +492,7 @@ body.dark-mode .barcode-font { color: #fff; }
     </div>
   </div>
 
-  <!-- Pie Offers Section (الغرفة المستقلة) -->
+  <!-- Pie Offers Section -->
   <div id="pie-offers" class="section">
     <div class="section-header pie-header">
       <h2>🥧 عروض الفطير 1+1</h2>
@@ -470,7 +511,7 @@ body.dark-mode .barcode-font { color: #fff; }
     </div>
   </div>
 
-  <!-- Shawerma Offers Section (الغرفة المستقلة) -->
+  <!-- Shawerma Offers Section -->
   <div id="shawerma-offers" class="section">
     <div class="section-header shawerma-header">
       <h2>🌯 عروض الشاورما 2+1</h2>
@@ -655,7 +696,7 @@ body.dark-mode .barcode-font { color: #fff; }
     </div>
   </div>
 
-  <!-- Shawerma Section -->
+  <!-- Shawerma Section (Main) -->
   <div id="shawerma" class="section">
     <div class="section-header shawerma-header">
       <h2>🌯 SHAWERMA</h2>
@@ -790,12 +831,23 @@ body.dark-mode .barcode-font { color: #fff; }
     </div>
   </div>
 
-  <!-- Footer -->
+  <!-- Footer المُعدل (زر اتصال مباشر وأيقونة فيسبوك) -->
   <div class="footer">
     <h3>فتح الله FATHALLA</h3>
     <p>جودة منذ 1948</p>
     <p style="margin-top:15px; opacity:0.8;">للطلب والاستفسار</p>
-    <div class="hotline">📞 Hotline: 15260</div>
+    
+    <!-- زر الاتصال المباشر الجديد -->
+    <a href="tel:15260" class="hotline-btn">📞 Hotline: 15260</a>
+    
+    <!-- قسم فيسبوك الجديد -->
+    <div style="margin-top: 35px; padding-top: 25px; border-top: 1px solid rgba(255,255,255,0.1);">
+        <p style="font-size: 1.2rem; margin-bottom: 10px; font-weight: bold;">لمتابعه احدث العروض</p>
+        <a href="https://www.facebook.com/search/top?q=fathalla%20market" target="_blank" class="fb-btn">
+            <svg style="width: 24px; height: 24px; margin-right: 10px; fill: white;" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
+            Facebook
+        </a>
+    </div>
   </div>
 </div>
 
@@ -921,21 +973,28 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// --- قاموس الترجمة الشامل ---
+// --- قاموس الترجمة الشامل (مُحدث بالكامل) ---
 const dictionary = {
+    "PIE - فطائر": "PIE", "CREPE - كريب": "CREPE", "PASTA - مكرونة": "PASTA",
+    "MEALS - وجبات": "MEALS", "GRILLED - مشويات": "GRILLED", "DRINKS - مشروبات": "DRINKS",
+    "DESSERT - حلويات": "DESSERT", "حلويات ومخبوزات | Enjoy Every Bite": "Desserts & Pastries | Enjoy Every Bite",
+    "فطائر حلوة": "Sweet Pies", "فطائر حادق (عرض 1+1)": "Savory Pies (1+1 Offer)",
+    "كريب حادق": "Savory Crepes", "كريب حلو": "Sweet Crepes", "Juices - عصائر": "Juices",
+    "Waffles - وافلز": "Waffles", "Ice Cream - ايس كريم": "Ice Cream",
+    "فطائر حادق (خصم 10%)": "Savory Pies (10% Off)", "بيتزا (خصم 10%)": "Pizza (10% Off)",
+    "لمتابعه احدث العروض": "Follow us for the latest offers",
+    
     "عروض": "Offers", "سلاطات": "Salads", "مقبلات": "Appetizers", "بيتزا": "Pizza",
     "فطائر": "Pies", "كريب": "Crepes", "مكرونة": "Pasta", "وجبات": "Meals",
     "مشويات": "Grilled", "شاورما": "Shawarma", "مشروبات": "Drinks", "بارستا": "Barista",
     "حلويات": "Desserts", "جنيه": "EGP", "سلة المشتريات": "Shopping Cart",
     "الإجمالي:": "Total:", "الطلبات المحددة والباركود": "Selected Items & Barcodes",
     
+    "عروض البيتزا 1+1": "Pizza Offers 1+1", "عروض الفطير 1+1": "Pie Offers 1+1", "عروض الشاورما 2+1": "Shawarma Offers 2+1",
     "عرض البيتزا 1+1": "Pizza Offer 1+1", "عرض الفطير 1+1": "Pie Offer 1+1", "عرض الشاورما 2+1": "Shawarma Offer 2+1",
     "👈 اضغط هنا لاختيار البيتزا 👉": "👈 Click to select Pizza 👉",
     "👈 اضغط هنا لاختيار الفطائر 👉": "👈 Click to select Pies 👉",
     "👈 اضغط هنا لاختيار الشاورما 👉": "👈 Click to select Shawarma 👉",
-    
-    "عروض البيتزا 1+1": "Pizza Offers 1+1", "عروض الفطير 1+1": "Pie Offers 1+1", "عروض الشاورما 2+1": "Shawarma Offers 2+1",
-    "بيتزا (خصم 10%)": "Pizza (10% Discount)", "فطائر حادق (خصم 10%)": "Savory Pies (10% Discount)",
     
     "كومبو 2 كفته مشوية": "Combo 2 Grilled Kofta", "كلوسلو + فرايز": "Coleslaw + Fries",
     "كومبو 1 كفته، 1 صدور": "Combo 1 Kofta, 1 Breast", "كومبو 1 كفته، 1 شيش": "Combo 1 Kofta, 1 Shish",
@@ -980,8 +1039,16 @@ const dictionary = {
     "بطاطس جبنة": "Cheese Fries", "ارز بسمتي": "Basmati Rice", "ممبار": "Mombar",
     "كبيبة لحم": "Meat Kobeba", "ورق عنب أرز": "Stuffed Vine Leaves", "مشكل مقبلات": "Mixed Appetizers",
     
+    "بيتزا بسطرمة": "Pastrami Pizza", "بيتزا مارجريتا": "Margherita Pizza", "بيتزا ببروني": "Pepperoni Pizza",
+    "بيتزا مشكل جبن": "Mixed Cheese Pizza", "بيتزا مشكل لحوم": "Mixed Meat Pizza", "بيتزا سجق": "Sausage Pizza",
+    "بيتزا جمبري": "Shrimp Pizza", "بيتزا شاورما فراخ": "Chicken Shawarma Pizza", "بيتزا سي فود": "Seafood Pizza",
+    "بيتزا دجاج رانش": "Chicken Ranch Pizza", "بيتزا دجاج باربيكيو": "Chicken BBQ Pizza",
+    
     "فطيرة بغاشة": "Baghasha Pie", "فطيرة سكر": "Sugar Pie", "فطيرة نوتيلا": "Nutella Pie",
     "فطيرة كاستر": "Custard Pie", "فطيرة لوتس": "Lotus Pie", "فطيرة اوريو": "Oreo Pie",
+    "فطيرة بسطرمة": "Pastrami Pie", "فطيرة خضروات": "Vegetable Pie", "فطيرة دجاج": "Chicken Pie",
+    "فطيرة مشكل جبن": "Mixed Cheese Pie", "فطيرة مشكل لحوم": "Mixed Meat Pie", "فطيرة سجق": "Sausage Pie",
+    "فطيرة سي فود": "Seafood Pie", "فطيرة شاورما فراخ": "Chicken Shawarma Pie", "فطيرة جمبري": "Shrimp Pie",
     
     "كريب كريسبي": "Crispy Crepe", "كريب سجق": "Sausage Crepe", "كريب مشكل لحوم": "Mixed Meat Crepe",
     "كريب بسطرمة": "Pastrami Crepe", "كريب سي فود": "Seafood Crepe", "كريب شاورما فراخ": "Chicken Shawarma Crepe",
@@ -1045,6 +1112,7 @@ function toggleLanguage() {
         if (node.nodeType === 3) {
             let text = node.nodeValue.trim();
             if (text) {
+                // إزالة الإيموجي للمطابقة الصحيحة للترجمة
                 let cleanText = text.replace(/([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g, '').trim();
                 if (isEnglish && dictionary[cleanText]) {
                     node.nodeValue = node.nodeValue.replace(cleanText, dictionary[cleanText]);
