@@ -4,31 +4,33 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>منيو فتح الله - Fathalla Menu</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Libre+Barcode+39&display=swap" rel="stylesheet">
 <style>
+/* --- الألوان الجديدة المريحة للعين والمهدئة نفسياً --- */
 :root {
-    --primary: #c41e3a;
-    --secondary: #d4a574;
-    --dark: #2d1810;
-    --light: #f5e6d3;
-    --accent: #ff6b35;
-    --green: #4a7c59;
-    --blue: #3d5a80;
-    --purple: #6b2d5c;
-    --gold: #c9a227;
-    --orange: #e07b39;
-    --brown: #8b4513;
-    --pink: #ff6b9d;
+    --primary: #d95c50; /* أحمر هادئ (تراكوتا) يفتح الشهية دون إزعاج للعين */
+    --secondary: #d5b895; /* بيج هادئ */
+    --dark: #2c3e50; /* كحلي رمادي داكن هادئ بدلاً من الأسود */
+    --light: #fcfaf5; /* خلفية بيضاء مائلة للكريمة لراحة العين */
+    --accent: #f4a261; /* برتقالي باستيل */
+    --green: #6b8e76; /* أخضر مريمية هادئ */
+    --blue: #5d738e; 
+    --purple: #865c7a;
+    --gold: #d4b86a;
+    --orange: #e28e56;
+    --brown: #8a6347;
+    --pink: #d98cb3;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     font-family: 'Cairo', sans-serif;
-    background-color: #000000;
-color: #ffffff;
+    background-color: var(--light);
+    color: var(--dark);
     min-height: 100vh;
     overflow-x: hidden;
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 .menu-container {
@@ -41,61 +43,12 @@ color: #ffffff;
 .header {
     text-align: center;
     padding: 50px 20px;
-    background: linear-gradient(135deg, var(--primary) 0%, #8b1538 50%, #6b0f2a 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, #c44d42 50%, #b33930 100%);
     border-radius: 25px;
     margin-bottom: 30px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 15px 50px rgba(196, 30, 58, 0.4);
-}
-
-.header::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 60%);
-    animation: pulse 4s ease-in-out infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.5; }
-    50% { transform: scale(1.2) rotate(5deg); opacity: 0.9; }
-}
-
-.logo-text {
-    font-size: 4rem;
-    font-weight: 900;
-    color: #fff;
-    text-shadow: 4px 4px 8px rgba(0,0,0,0.4);
-    position: relative;
-    z-index: 1;
-    letter-spacing: 2px;
-}
-
-.logo-sub {
-    font-size: 1.4rem;
-    color: #f5e6d3;
-    margin-top: 10px;
-    position: relative;
-    z-index: 1;
-    font-weight: 600;
-}
-
-.est-year {
-    display: inline-block;
-    background: var(--gold);
-    color: var(--dark);
-    padding: 8px 30px;
-    border-radius: 30px;
-    font-weight: 800;
-    margin-top: 15px;
-    position: relative;
-    z-index: 1;
-    font-size: 1.1rem;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 30px rgba(217, 92, 80, 0.2);
 }
 
 /* Navigation Tabs */
@@ -106,461 +59,219 @@ color: #ffffff;
     justify-content: center;
     margin-bottom: 35px;
     padding: 20px;
-    background: rgba(255,255,255,0.85);
+    background: rgba(255,255,255,0.7);
     border-radius: 20px;
     backdrop-filter: blur(15px);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
 }
 
 .nav-tab {
-    padding: 14px 28px;
+    padding: 12px 25px;
     border: none;
     border-radius: 30px;
     font-family: 'Cairo', sans-serif;
     font-size: 1.05rem;
     font-weight: 700;
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.3s ease;
     color: #fff;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.nav-tab::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(255,255,255,0.25);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.5s, height 0.5s;
-}
+.nav-tab:hover { transform: translateY(-3px) scale(1.05); }
+.nav-tab.active { transform: scale(1.1) translateY(-3px); border: 2px solid rgba(255,255,255,0.7); }
 
-.nav-tab:hover::after {
-    width: 250px;
-    height: 250px;
-}
-
-.nav-tab:hover {
-    transform: translateY(-5px) scale(1.08);
-    box-shadow: 0 12px 35px rgba(0,0,0,0.25);
-}
-
-.nav-tab.active {
-    transform: scale(1.1) translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-    border: 3px solid rgba(255,255,255,0.5);
-}
-
-.tab-salads { background: linear-gradient(135deg, #4a7c59, #2d5a3d); }
-.tab-appetizers { background: linear-gradient(135deg, #d4a574, #b8935f); }
-.tab-pizza { background: linear-gradient(135deg, #c41e3a, #8b1538); }
-.tab-pie { background: linear-gradient(135deg, #6b2d5c, #4a1f40); }
-.tab-crepe { background: linear-gradient(135deg, #3d5a80, #2a3f5f); }
-.tab-pasta { background: linear-gradient(135deg, #e07b39, #c4622a); }
-.tab-meals { background: linear-gradient(135deg, #8b4513, #6b3410); }
-.tab-grilled { background: linear-gradient(135deg, #5c4033, #3d2b22); }
-.tab-shawerma { background: linear-gradient(135deg, #c41e3a, #8b1538); }
-.tab-drinks { background: linear-gradient(135deg, #2e8b57, #1e6b3f); }
-.tab-barista { background: linear-gradient(135deg, #6b4423, #4a2f18); }
-.tab-dessert { background: linear-gradient(135deg, #ff6b9d, #e05585); }
+.tab-salads { background: linear-gradient(135deg, #6b8e76, #52705b); }
+.tab-appetizers { background: linear-gradient(135deg, #d5b895, #bc9f7c); }
+.tab-pizza { background: linear-gradient(135deg, #d95c50, #ba453a); }
+.tab-pie { background: linear-gradient(135deg, #865c7a, #6c4761); }
+.tab-crepe { background: linear-gradient(135deg, #5d738e, #475a72); }
+.tab-pasta { background: linear-gradient(135deg, #e28e56, #c6743e); }
+.tab-meals { background: linear-gradient(135deg, #8a6347, #6e4e37); }
+.tab-grilled { background: linear-gradient(135deg, #6e5c53, #53443c); }
+.tab-shawerma { background: linear-gradient(135deg, #d95c50, #ba453a); }
+.tab-drinks { background: linear-gradient(135deg, #5c9e78, #478260); }
+.tab-barista { background: linear-gradient(135deg, #967055, #7a5840); }
+.tab-dessert { background: linear-gradient(135deg, #d98cb3, #bf7399); }
 
 /* Section Content */
-.section {
-    display: none;
-    animation: fadeInUp 0.6s ease;
-}
-
-.section.active {
-    display: block;
-}
+.section { display: none; animation: fadeInUp 0.5s ease; }
+.section.active { display: block; }
 
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(40px) scale(0.95); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .section-header {
     text-align: center;
-    padding: 30px;
+    padding: 25px;
     border-radius: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     color: #fff;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
 
-.section-header::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/></svg>');
-    background-size: 60px 60px;
-    animation: bgMove 20s linear infinite;
-}
-
-@keyframes bgMove {
-    0% { background-position: 0 0; }
-    100% { background-position: 60px 60px; }
-}
-
-.section-header h2 {
-    font-size: 2.8rem;
-    font-weight: 900;
-    text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
-    position: relative;
-    z-index: 1;
-}
-
-.section-header .subtitle {
-    font-size: 1.1rem;
-    opacity: 0.95;
-    position: relative;
-    z-index: 1;
-    font-weight: 600;
-}
-
-.section-header .offer-badge {
-    display: inline-block;
-    background: linear-gradient(135deg, #fff, #f0f0f0);
-    color: var(--primary);
-    padding: 10px 25px;
-    border-radius: 25px;
-    font-weight: 800;
-    margin-top: 15px;
-    position: relative;
-    z-index: 1;
-    animation: bounce 2s infinite;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-    font-size: 1rem;
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-}
+.section-header h2 { font-size: 2.5rem; font-weight: 900; }
+.section-header .subtitle { font-size: 1.1rem; opacity: 0.9; }
 
 /* Items Grid */
 .items-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
 }
 
 .item-card {
-    background: linear-gradient(135deg, #fff 0%, #faf8f5 100%);
-    border-radius: 20px;
-    padding: 25px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.04);
+    transition: all 0.3s ease;
+    border: 1px solid #f0f0f0;
     position: relative;
     overflow: hidden;
-    border: 2px solid transparent;
 }
 
 .item-card:hover {
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.18);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
     border-color: var(--primary);
 }
 
-.item-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 5px;
-    background: linear-gradient(90deg, var(--primary), var(--accent), var(--gold));
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.4s ease;
+.item-name { font-size: 1.3rem; font-weight: 800; color: var(--dark); margin-bottom: 5px; }
+.item-price { font-size: 1.5rem; font-weight: 900; color: var(--primary); }
+.item-price .currency { font-size: 0.9rem; color: #888; font-weight: 600; }
+
+/* Dark Mode - تم تعديله ليكون أزرق رمادي هادئ جداً ومريح للعين */
+body.dark-mode {
+    background-color: #1a1b20 !important;
+    color: #e4e6eb !important;
 }
 
-.item-card:hover::before {
-    transform: scaleX(1);
+body.dark-mode .item-card, 
+body.dark-mode .nav-tabs {
+    background-color: #24262d !important;
+    border-color: #2f323a !important;
 }
 
-.item-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0; right: 0;
-    width: 80px; height: 80px;
-    background: radial-gradient(circle, rgba(196,30,58,0.08) 0%, transparent 70%);
-    border-radius: 50%;
+body.dark-mode .item-name { color: #f0f0f0 !important; }
+
+/* تأثير العروض النارية التفاعلية بشكل هادئ وجذاب */
+@keyframes warmPulse {
+    0% { box-shadow: 0 0 10px rgba(217,92,80,0.4); transform: scale(1); }
+    50% { box-shadow: 0 0 20px rgba(244,162,97,0.6); transform: scale(1.02); }
+    100% { box-shadow: 0 0 10px rgba(217,92,80,0.4); transform: scale(1); }
 }
 
-.item-name {
-    font-size: 1.4rem;
-    font-weight: 800;
-    color: var(--dark);
-    margin-bottom: 10px;
-    position: relative;
-}
-
-.item-price {
-    font-size: 1.7rem;
-    font-weight: 900;
-    color: var(--primary);
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-}
-
-.item-price .currency {
-    font-size: 0.95rem;
-    color: #888;
-    font-weight: 600;
-}
-
-.item-badge {
-    display: inline-block;
-    padding: 6px 16px;
-    border-radius: 15px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    margin-top: 12px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-}
-
-.badge-new { background: linear-gradient(135deg, #e8f5e9, #c8e6c9); color: #2e7d32; }
-.badge-hot { background: linear-gradient(135deg, #ffebee, #ffcdd2); color: #c62828; }
-.badge-offer { background: linear-gradient(135deg, #fff3e0, #ffe0b2); color: #e65100; }
-
-/* Price with old price */
-.price-container {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-top: 8px;
-    flex-wrap: wrap;
-}
-
-.old-price {
-    text-decoration: line-through;
-    color: #999;
-    font-size: 1.1rem;
-    font-weight: 600;
-}
-
-/* Subsection */
-.drinks-subsection {
-    margin-bottom: 40px;
-}
-
-.drinks-subsection h3 {
-    color: var(--dark);
-    font-size: 1.7rem;
-    margin-bottom: 20px;
-    padding-right: 20px;
-    border-right: 5px solid var(--primary);
-    font-weight: 800;
-}
-
-/* Special section headers */
-.salads-header { background: linear-gradient(135deg, #4a7c59, #2d5a3d, #1e3d2a); }
-.appetizers-header { background: linear-gradient(135deg, #d4a574, #b8935f, #9a7b4f); }
-.pizza-header { background: linear-gradient(135deg, #c41e3a, #8b1538, #6b0f2a); }
-.pie-header { background: linear-gradient(135deg, #6b2d5c, #4a1f40, #3a1530); }
-.crepe-header { background: linear-gradient(135deg, #3d5a80, #2a3f5f, #1e2f4f); }
-.pasta-header { background: linear-gradient(135deg, #e07b39, #c4622a, #a05020); }
-.meals-header { background: linear-gradient(135deg, #8b4513, #6b3410, #4b2408); }
-.grilled-header { background: linear-gradient(135deg, #5c4033, #3d2b22, #2d1f18); }
-.shawerma-header { background: linear-gradient(135deg, #c41e3a, #8b1538, #6b0f2a); }
-.drinks-header { background: linear-gradient(135deg, #2e8b57, #1e6b3f, #0e4b2f); }
-.barista-header { background: linear-gradient(135deg, #6b4423, #4a2f18, #3a2310); }
-.dessert-header { background: linear-gradient(135deg, #ff6b9d, #e05585, #c04575); }
-
-/* Footer */
-.footer {
-    text-align: center;
-    padding: 40px;
-    margin-top: 50px;
-    background: linear-gradient(135deg, var(--dark), #1a0f0a, #0d0805);
+.fiery-banner {
+    background: linear-gradient(45deg, #d95c50, #f4a261, #e76f51, #d95c50);
+    background-size: 200% 200%;
+    color: #ffffff;
+    padding: 15px;
     border-radius: 20px;
-    color: #fff;
-    position: relative;
-    overflow: hidden;
+    text-align: center;
+    font-weight: bold;
+    font-size: 19px;
+    margin: 10px auto 25px auto;
+    cursor: pointer;
+    animation: warmPulse 3s infinite;
 }
 
-.footer::before {
-    content: '';
+.tab-offers {
+    background: linear-gradient(45deg, #d95c50, #f4a261) !important;
+    color: #ffffff !important;
+    font-weight: bold !important;
+}
+
+/* تنسيقات عنوان الكيتشن */
+.kitchen-title {
+    text-align: center; 
+    color: #ffffff; 
+    font-size: 26px; 
+    font-weight: 900; 
+    margin-top: 15px;
+    letter-spacing: 3px;
+    transition: all 0.3s ease;
+}
+
+/* --- تنسيقات سلة المشتريات والباركود --- */
+#cart-icon {
     position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--primary), var(--gold), var(--primary));
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    z-index: 1000;
+    transition: transform 0.2s;
 }
-
-.footer h3 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    font-weight: 900;
-}
-
-.footer p {
-    font-size: 1.1rem;
-    opacity: 0.9;
-    margin-bottom: 15px;
-}
-
-.hotline {
-    font-size: 2rem;
-    color: var(--gold);
-    font-weight: 900;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    display: inline-block;
-    padding: 10px 30px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 15px;
-    margin-top: 10px;
-}
-
-/* Floating particles */
-.particle {
-    position: fixed;
-    pointer-events: none;
-    opacity: 0.2;
-    animation: float 20s infinite linear;
-    z-index: 0;
-    font-size: 25px;
-}
-
-@keyframes float {
-    0% { transform: translateY(110vh) rotate(0deg) scale(1); }
-    50% { transform: translateY(50vh) rotate(180deg) scale(1.2); }
-    100% { transform: translateY(-100px) rotate(360deg) scale(1); }
-}
-
-/* Scrollbar */
-::-webkit-scrollbar { width: 10px; }
-::-webkit-scrollbar-track { background: var(--light); }
-::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 5px; }
-::-webkit-scrollbar-thumb:hover { background: #8b1538; }
-
-/* Responsive */
-@media (max-width: 768px) {
-    .logo-text { font-size: 2.8rem; }
-    .items-grid { grid-template-columns: 1fr; }
-    .nav-tab { padding: 12px 20px; font-size: 0.95rem; }
-    .section-header h2 { font-size: 2.2rem; }
-    .hotline { font-size: 1.5rem; }
-}
-
-/* Print styles */
-@media print {
-    .nav-tabs { display: none; }
-    .section { display: block !important; page-break-before: always; }
-    .header { page-break-after: avoid; }
-    body { background: #fff; }
-    .item-card { break-inside: avoid; box-shadow: none; border: 1px solid #ddd; }
-}
-
-/* Loading animation */
-.loading-screen {
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(135deg, var(--primary), #8b1538);
+#cart-icon:hover { transform: scale(1.1); }
+#cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: var(--primary);
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.toast {
+    position: fixed;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--green);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: bottom 0.4s ease;
     z-index: 9999;
-    transition: opacity 0.5s;
 }
 
-.loading-text {
-    color: #fff;
-    font-size: 2rem;
-    font-weight: 900;
-    animation: loadingPulse 1.5s infinite;
+.barcode-font {
+    font-family: 'Libre Barcode 39', cursive;
+    font-size: 45px;
+    color: var(--dark);
+    margin-top: 10px;
+    line-height: 1;
 }
-}
-@keyframes loadingPulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(1.1); }
-}
-    /* تنسيق زر العروض ليكون جذاباً وملفتاً */
-.tab-offers {
-    background: linear-gradient(45deg, #ff0000, #ff7300) !important; /* تدرج لوني ناري */
-    color: #ffffff !important; /* لون النص أبيض */
-    font-weight: bold !important; /* خط عريض */
-    border: 2px solid #ffcc00 !important; /* إطار ذهبي خفيف */
-    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.4) !important; /* ظل أحمر خفيف لإبراز الزر */
-    transform: scale(1.05); /* تكبير الزر بنسبة بسيطة جداً ليكون بارزاً */
-    }
-    /* تنسيقات الوضع الليلي */
-
-    body {
-        background-color: #ffffff !important;
-        transition: background-color 0.3s ease;
-    }
-
-    body.dark-mode {
-        background-color: #121212 !important;
-        color: #ffffff !important;
-    }
-    body.dark-mode {
-        background-color: #121212 !important;
-        color: #ffffff !important;
-    }
-
-    body.dark-mode .menu-container,
-    body.dark-mode .header {
-        background-color: #1e1e1e !important;
-    }
-
-    body.dark-mode .nav-tabs {
-        background-color: #2a2a2a !important;
-    }
+body.dark-mode .barcode-font { color: #fff; }
 </style>
-<base target="_blank">
 </head>
 <body>
 
-<!-- Loading Screen -->
-<div class="loading-screen" id="loadingScreen">
-    <div class="loading-text">فتح الله FATHALLA</div>
+<div style="position: absolute; top: 20px; left: 20px; z-index: 1000; display: flex; gap: 15px;">
+    <button id="theme-toggle" onclick="toggleTheme()" style="background: rgba(255,255,255,0.9); border:none; width: 45px; height: 45px; border-radius: 50%; font-size: 20px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">🌙</button>
+    <button id="lang-toggle" onclick="toggleLanguage()" style="background: rgba(255,255,255,0.9); border:none; height: 45px; padding: 0 15px; border-radius: 25px; font-size: 16px; font-weight: bold; color: var(--dark); cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">🌐 EN</button>
 </div>
 
-<div class="menu-container">
-  <!-- Header -->
-  <div class="header">
-<div class="header" style="position: relative;">
-    <button id="theme-toggle" onclick="toggleTheme()" style="position: absolute; top: 15px; left: 15px; background: none; border: none; font-size: 24px; cursor: pointer; z-index: 1000;">
-        🌙
-    </button>
-    
-    <img src="logo.png" alt="العلامة التجارية" style="max-width: 100%; max-height: 130px; object-fit: contain; display: block; margin: 0 auto;">
-<style>
-        @keyframes floatAndGlow {
-            0%, 100% { transform: translateY(0); text-shadow: 0 0 8px rgba(255,255,255,0.4); }
-            50% { transform: translateY(-4px); text-shadow: 0 0 15px rgba(255,255,255,1); }
-        }
-        .kitchen-title {
-            text-align: center; 
-            color: #ffffff; 
-            font-size: 26px; 
-            font-weight: 900; 
-            margin-top: 15px;
-            letter-spacing: 3px; /* مسافة أنيقة بين الحروف */
-            font-family: Arial, sans-serif;
-            animation: floatAndGlow 3s ease-in-out infinite; /* تشغيل الحركة المستمرة */
-            transition: all 0.3s ease; /* نعومة في التحول عند اللمس */
-            cursor: pointer;
-        }
-        /* الحركة التفاعلية عند اللمس أو وقوف الماوس */
-        .kitchen-title:hover {
-            transform: scale(1.1); /* تكبير الكلمة */
-            color: #ffcc00; /* تحويلها للون الذهبي */
-            text-shadow: 0 0 20px rgba(255, 204, 0, 0.8);
-        }
-    </style>
-    
-    <div class="kitchen-title">KITCHEN MENU</div></div>  
+<div id="cart-icon" onclick="showSection('cart')">
+    🛒<div id="cart-count">0</div>
+</div>
 
-  <!-- Navigation -->
+<div id="toast" class="toast">تمت الإضافة للسلة ✔️</div>
+
+<div class="menu-container">
+  <div class="header">
+    <img src="logo.png" alt="العلامة التجارية" style="max-width: 100%; max-height: 130px; object-fit: contain; display: block; margin: 0 auto;">
+    <div class="kitchen-title">KITCHEN MENU</div>
+  </div>  
+
   <div class="nav-tabs">
-      <button class="nav-tab tab-offers" onclick="showSection('offers')">🔥🔥عروض</button>
+    <button class="nav-tab tab-offers" onclick="showSection('offers')">🔥 عروض</button>
     <button class="nav-tab tab-salads active" onclick="showSection('salads')">🥗 سلاطات</button>
     <button class="nav-tab tab-appetizers" onclick="showSection('appetizers')">🍟 مقبلات</button>
     <button class="nav-tab tab-pizza" onclick="showSection('pizza')">🍕 بيتزا</button>
@@ -574,464 +285,140 @@ color: #ffffff;
     <button class="nav-tab tab-barista" onclick="showSection('barista')">☕ بارستا</button>
     <button class="nav-tab tab-dessert" onclick="showSection('dessert')">🍰 حلويات</button>
   </div>
-<div id="offers" class="section">
-       
-<!-- بانر عرض البيتزا التفاعلي الناري -->
-        <style>
-            @keyframes firePulse {
-                0% { 
-                    background-position: 0% 50%; 
-                    box-shadow: 0 0 10px #ff3300; 
-                    transform: scale(1);
-                }
-                50% { 
-                    background-position: 100% 50%; 
-                    box-shadow: 0 0 20px #ff9900, 0 0 30px #ff0000; 
-                    transform: scale(1.02);
-                }
-                100% { 
-                    background-position: 0% 50%; 
-                    box-shadow: 0 0 10px #ff3300; 
-                    transform: scale(1);
-                }
-            }
-            .fiery-banner {
-                background: linear-gradient(45deg, #cc0000, #ff6600, #ffcc00, #cc0000);
-                background-size: 300% 300%;
-                color: #ffffff;
-                padding: 15px;
-                border-radius: 30px;
-                text-align: center;
-                font-weight: bold;
-                font-size: 19px;
-                margin: 10px auto 25px auto;
-                max-width: 90%;
-                cursor: pointer;
-                border: 2px solid #ffea00;
-                animation: firePulse 2s infinite;
-                text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-            }
-        </style>
 
-        <div class="fiery-banner" onclick="showSection('pizza')">
-            🍕 عرض 1+1 | Large + Medium Free 🍕
-            <div style="font-size: 14px; color: #ffeeaa; margin-top: 5px; font-weight: normal;">
-                👈 اضغط هنا لتصفح واختيار البيتزا 👉
-            </div>
-        </div>        
-        
-        <div class="items-grid">
-            
-            <div class="item-card">
-                <div class="item-name">كومبو 2 كفته مشوية</div>
-                <div class="item-desc" style="font-size: 13px; color: #888; margin: 5px 0;">كلوسلو + فرايز</div>
-                <div class="item-price">130 <span class="currency">جنيه</span></div>
-            </div>
+  <div id="cart" class="section">
+    <div class="section-header" style="background: var(--dark);">
+      <h2>🛒 سلة المشتريات</h2>
+      <div class="subtitle">الطلبات المحددة والباركود</div>
+    </div>
+    <div id="cart-items" class="items-grid">
+        </div>
+    <div style="text-align: center; margin-top: 30px; padding: 20px; background: rgba(0,0,0,0.05); border-radius: 15px;">
+        <h2 style="color: var(--primary);">الإجمالي: <span id="cart-total">0</span> جنيه</h2>
+    </div>
+  </div>
 
-            <div class="item-card">
-                <div class="item-name">كومبو 1 كفته، 1 صدور</div>
-                <div class="item-desc" style="font-size: 13px; color: #888; margin: 5px 0;">كلوسلو + فرايز</div>
-                <div class="item-price">130 <span class="currency">جنيه</span></div>
-            </div>
-
-            <div class="item-card">
-                <div class="item-name">كومبو 1 كفته، 1 شيش</div>
-                <div class="item-desc" style="font-size: 13px; color: #888; margin: 5px 0;">كلوسلو + فرايز</div>
-                <div class="item-price">130 <span class="currency">جنيه</span></div>
-            </div>
-
-            <div class="item-card">
-                <div class="item-name">عرض وجبة كفته مشوية</div>
-                <div class="item-desc" style="font-size: 13px; color: #888; margin: 5px 0;">أرز + مقبلات + مخلل + سلطة + خبز</div>
-                <div class="item-price">130 <span class="currency">جنيه</span></div>
-            </div>
-
-            <div class="item-card">
-                <div class="item-name">عرض وجبة الصدور</div>
-                <div class="item-desc" style="font-size: 13px; color: #888; margin: 5px 0;">أرز + مقبلات + مخلل + سلطة + خبز</div>
-                <div class="item-price">130 <span class="currency">جنيه</span></div>
-            </div>
-
-            <div class="item-card">
-                <div class="item-name">عرض وجبة شيش طاووق</div>
-                <div class="item-desc" style="font-size: 13px; color: #888; margin: 5px 0;">أرز + مقبلات + مخلل + سلطة + خبز</div>
-                <div class="item-price">130 <span class="currency">جنيه</span></div>
-            </div>
-
+  <div id="offers" class="section">
+    <div class="fiery-banner" onclick="showSection('pizza')">
+        🍕 عرض 1+1 | Large + Medium Free 🍕
+        <div style="font-size: 14px; margin-top: 5px; font-weight: normal;">👈 اضغط هنا لتصفح واختيار البيتزا 👉</div>
+    </div>        
+    <div class="items-grid">
+        <div class="item-card">
+            <div class="item-name">كومبو 2 كفته مشوية</div>
+            <div class="item-desc" style="font-size: 13px; color: #888; margin: 5px 0;">كلوسلو + فرايز</div>
+            <div class="item-price">130 <span class="currency">جنيه</span></div>
+        </div>
+        <div class="item-card">
+            <div class="item-name">كومبو 1 كفته، 1 صدور</div>
+            <div class="item-desc" style="font-size: 13px; color: #888; margin: 5px 0;">كلوسلو + فرايز</div>
+            <div class="item-price">130 <span class="currency">جنيه</span></div>
+        </div>
+        <div class="item-card">
+            <div class="item-name">كومبو 1 كفته، 1 شيش</div>
+            <div class="item-desc" style="font-size: 13px; color: #888; margin: 5px 0;">كلوسلو + فرايز</div>
+            <div class="item-price">130 <span class="currency">جنيه</span></div>
+        </div>
+        <div class="item-card">
+            <div class="item-name">عرض وجبة كفته مشوية</div>
+            <div class="item-desc" style="font-size: 13px; color: #888; margin: 5px 0;">أرز + مقبلات + مخلل + سلطة + خبز</div>
+            <div class="item-price">130 <span class="currency">جنيه</span></div>
         </div>
     </div>
-  <!-- Salads Section -->
+  </div>
+
   <div id="salads" class="section active">
     <div class="section-header salads-header">
       <h2>🥗 SALADS</h2>
-      <div class="subtitle">Enjoy Every Bite</div>
     </div>
     <div class="items-grid">
       <div class="item-card"><div class="item-name">سلطة خضراء</div><div class="item-price">30 <span class="currency">جنيه</span></div></div>
       <div class="item-card"><div class="item-name">سلطة بنجر</div><div class="item-price">35 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">سلطة تونية</div><div class="item-price">35 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">سلطة حمص</div><div class="item-price">35 <span class="currency">جنيه</span></div></div>
       <div class="item-card"><div class="item-name">سلطة كول سلو</div><div class="item-price">35 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">سلطة طحينة</div><div class="item-price">35 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">سلطة بابا غنوج</div><div class="item-price">35 <span class="currency">جنيه</span></div></div>
       <div class="item-card"><div class="item-name">سلطة تومية</div><div class="item-price">35 <span class="currency">جنيه</span></div></div>
     </div>
   </div>
 
-  <!-- Appetizers Section -->
   <div id="appetizers" class="section">
     <div class="section-header appetizers-header">
       <h2>🍟 APPETIZERS</h2>
-      <div class="subtitle">Enjoy Every Bite</div>
     </div>
     <div class="items-grid">
       <div class="item-card"><div class="item-name">سمبوسك جبن</div><div class="item-price">70 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">سمبوسك لحم</div><div class="item-price">80 <span class="currency">جنيه</span></div></div>
       <div class="item-card"><div class="item-name">باكيت بطاطس</div><div class="item-price">35 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">بطاطس جبنة</div><div class="item-price">40 <span class="currency">جنيه</span></div></div>
       <div class="item-card"><div class="item-name">ارز بسمتي</div><div class="item-price">40 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">ممبار</div><div class="item-price">165 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">كبيبة لحم</div><div class="item-price">100 <span class="currency">جنيه</span></div></div>
       <div class="item-card"><div class="item-name">ورق عنب أرز</div><div class="item-price">175 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">مشكل مقبلات</div><div class="item-price">200 <span class="currency">جنيه</span></div><span class="item-badge badge-hot">🔥 الأكثر طلباً</span></div>
     </div>
   </div>
 
-  <!-- Pizza Section -->
   <div id="pizza" class="section">
     <div class="section-header pizza-header">
       <h2>🍕 PIZZA</h2>
-      <div class="subtitle">Enjoy Every Bite</div>
     </div>
     <div class="items-grid">
       <div class="item-card"><div class="item-name">بيتزا بسطرمة</div><div class="item-price">230 <span class="currency">جنيه</span></div></div>
       <div class="item-card"><div class="item-name">بيتزا مارجريتا</div><div class="item-price">170 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">بيتزا ببروني</div><div class="item-price">230 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">بيتزا مشكل جبن</div><div class="item-price">225 <span class="currency">جنيه</span></div></div>
       <div class="item-card"><div class="item-name">بيتزا مشكل لحوم</div><div class="item-price">260 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">بيتزا سجق</div><div class="item-price">225 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">بيتزا جمبري</div><div class="item-price">380 <span class="currency">جنيه</span></div><span</div></div>
-      <div class="item-card"><div class="item-name">بيتزا شاورما فراخ</div><div class="item-price">240 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">بيتزا سي فود</div><div class="item-price">370 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">بيتزا دجاج رانش</div><div class="item-price">260 <span class="currency">جنيه</span></div></div>
       <div class="item-card"><div class="item-name">بيتزا دجاج باربيكيو</div><div class="item-price">260 <span class="currency">جنيه</span></div></div>
     </div>
   </div>
 
-  <!-- Pie Section -->
-  <div id="pie" class="section">
-    <div class="section-header pie-header">
-      <h2>🥧 PIE - فطائر</h2>
-      <div class="subtitle">حلويات ومخبوزات | Enjoy Every Bite</div>
-    </div>
-    <div class="drinks-subsection">
-      <h3>🍯 فطائر حلوة</h3>
-      <div class="items-grid">
-        <div class="item-card"><div class="item-name">فطيرة بغاشة</div><div class="item-price">70 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">فطيرة سكر</div><div class="item-price">65 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">فطيرة نوتيلا</div><div class="item-price">150 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">فطيرة كاستر</div><div class="item-price">80 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">فطيرة لوتس</div><div class="item-price">105 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">فطيرة اوريو</div><div class="item-price">105 <span class="currency">جنيه</span></div></div>
-      </div>
-    </div>
-    <div class="drinks-subsection">
-      <h3>🥩 فطائر حادق (عرض 1+1)</h3>
-      <div class="items-grid">
-        <div class="item-card"><div class="item-name">فطيرة بسطرمة</div><div class="item-price">240 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">فطيرة خضروات</div><div class="item-price">175 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">فطيرة دجاج</div><div class="item-price">245 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">فطيرة مشكل جبن</div><div class="item-price">225 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">فطيرة مشكل لحوم</div><div class="item-price">260 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">فطيرة سجق</div><div class="item-price">235 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">فطيرة سي فود</div><div class="item-price">370 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">فطيرة شاورما فراخ</div><div class="item-price">265 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">فطيرة جمبري</div><div class="item-price">385 <span class="currency">جنيه</span></div></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Crepe Section -->
-  <div id="crepe" class="section">
-    <div class="section-header crepe-header">
-      <h2>🌯 CREPE - كريب</h2>
-      <div class="subtitle">Enjoy Every Bite</div>
-    </div>
-    <div class="drinks-subsection">
-      <h3>🍗 كريب حادق</h3>
-      <div class="items-grid">
-        <div class="item-card"><div class="item-name">كريب كريسبي</div><div class="item-price">80 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">كريب سجق</div><div class="item-price">80 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">كريب مشكل لحوم</div><div class="item-price">100 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">كريب بسطرمة</div><div class="item-price">80 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">كريب سي فود</div><div class="item-price">135 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">كريب شاورما فراخ</div><div class="item-price">95 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">كريب جمبري</div><div class="item-price">130 <span class="currency">جنيه</span></div></div>
-      </div>
-    </div>
-    <div class="drinks-subsection">
-      <h3>🍫 كريب حلو</h3>
-      <div class="items-grid">
-        <div class="item-card"><div class="item-name">كريب نوتيلا</div><div class="item-price">80 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">كريب اوريو</div><div class="item-price">80 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">كريب لوتس</div><div class="item-price">80 <span class="currency">جنيه</span></div></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Pasta Section -->
-  <div id="pasta" class="section">
-    <div class="section-header pasta-header">
-      <h2>🍝 PASTA - مكرونة</h2>
-      <div class="subtitle">Enjoy Every Bite</div>
-    </div>
-    <div class="items-grid">
-      <div class="item-card"><div class="item-name">مكرونة الفريدو</div><div class="item-price">100 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">مكرونة مفروم فرن</div><div class="item-price">120 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">مكرونة نجرسكو</div><div class="item-price">120 <span class="currency">جنيه</span></div></div>
-    </div>
-  </div>
-
-  <!-- Meals Section -->
   <div id="meals" class="section">
     <div class="section-header meals-header">
       <h2>🍱 MEALS - وجبات</h2>
-      <div class="subtitle">Enjoy Every Bite</div>
     </div>
     <div class="items-grid">
       <div class="item-card"><div class="item-name">وجبة نص فرخة مشوية</div><div class="item-price">230 <span class="currency">جنيه</span></div></div>
       <div class="item-card"><div class="item-name">وجبة شيش طاووق</div><div class="item-price">185 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">وجبة فلتو مشوي</div><div class="item-price">350 <span class="currency">جنيه</span></div></div>
       <div class="item-card"><div class="item-name">وجبة كفتة مشوية</div><div class="item-price">200 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">مشكل: كفتة/شيش/فلتو</div><div class="item-price">250 <span class="currency">جنيه</span></div><span class="item-badge badge-offer">💥 قيمة رائعة</span></div>
-      <div class="item-card"><div class="item-name">وجبة صدور مشوية</div><div class="item-price">185 <span class="currency">جنيه</span></div></div>
     </div>
   </div>
 
-  <!-- Grilled Section -->
   <div id="grilled" class="section">
     <div class="section-header grilled-header">
       <h2>🔥 GRILLED - مشويات</h2>
-      <div class="subtitle">Enjoy Every Bite</div>
     </div>
     <div class="items-grid">
-      <div class="item-card"><div class="item-name">كفتة مشوية</div><div class="price-container"><span class="item-price">490 <span class="currency">كيلو</span></span></div></div>
+      <div class="item-card"><div class="item-name">كفتة مشوية</div><div class="item-price">490 <span class="currency">جنيه</span></div></div>
       <div class="item-card"><div class="item-name">فرخة مشوية</div><div class="item-price">375 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">نصف فرخة مشوية</div><div class="item-price">185 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">فلتو مشوي</div><div class="price-container"><span class="item-price">1150 <span class="currency">كيلو</span></span></div></div>
-      <div class="item-card"><div class="item-name">شيش طاووق</div><div class="price-container"><span class="item-price">465 <span class="currency">كيلو</span></span></div></div>
-      <div class="item-card"><div class="item-name">صدور فراخ</div><div class="price-container"><span class="item-price">490 <span class="currency">كيلو</span></span></div></div>
     </div>
   </div>
 
-  <!-- Shawerma Section -->
-  <div id="shawerma" class="section">
-    <div class="section-header shawerma-header">
-      <h2>🌯 SHAWERMA</h2>
-      <div class="subtitle">Enjoy Every Bite</div>
-      <div class="offer-badge">🎉 عرض 2+1 | اشترِ 2 واحصل على 1 مجاناً</div>
-    </div>
-    <div class="items-grid">
-      <div class="item-card"><div class="item-name">شاورما فراخ عربي</div><div class="item-price">160 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">شاورما فراخ سوري (L)</div><div class="item-price">125 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">شاورما فراخ سوري (M)</div><div class="item-price">115 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">فتة شاورما فراخ (L)</div><div class="item-price">180 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">فتة شاورما فراخ (M)</div><div class="item-price">155 <span class="currency">جنيه</span></div></div>
-    </div>
-  </div>
-
-  <!-- Drinks Section -->
-  <div id="drinks" class="section">
-    <div class="section-header drinks-header">
-      <h2>🥤 DRINKS - مشروبات</h2>
-      <div class="subtitle">Taste The Chill</div>
-    </div>
-    <div class="drinks-subsection">
-      <h3>🍊 Juices - عصائر</h3>
-      <div class="items-grid">
-        <div class="item-card"><div class="item-name">عصير موز</div><div class="item-price">40 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">عصير مواسم</div><div class="item-price">50 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">عصير مانجو</div><div class="item-price">45 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">عصير فراولة</div><div class="item-price">40 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">عصير ليمون</div><div class="item-price">35 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">عصير برتقال</div><div class="item-price">30 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">عصير ليمون نعناع</div><div class="item-price">40 <span class="currency">جنيه</span></div></div>
-      </div>
-    </div>
-    <div class="drinks-subsection">
-      <h3>🍃 Mojito</h3>
-      <div class="items-grid">
-        <div class="item-card"><div class="item-name">بلو كراسو موهيتو</div><div class="item-price">70 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">كلاسيك موهيتو</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">بلو بيري موهيتو</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">باشون موهيتو</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">خوخ موهيتو</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">فراولة موهيتو</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
-      </div>
-    </div>
-    <div class="drinks-subsection">
-      <h3>🥤 Smoothie</h3>
-      <div class="items-grid">
-        <div class="item-card"><div class="item-name">مانجو سموزي</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">فراولة سموزي</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">ليمون نعناع سموزي</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">بلو بيري سموزي</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">خوخ سموزي</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">كيوي سموزي</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">ميكس بيري سموزي</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">مانجو كيوي سموزي</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">مانجو خوخ سموزي</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
-      </div>
-    </div>
-    <div class="drinks-subsection">
-      <h3>🥛 Milkshake</h3>
-      <div class="items-grid">
-        <div class="item-card"><div class="item-name">ميلك شيك فانيليا</div><div class="item-price">65 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">ميلك شيك مانجو</div><div class="item-price">65 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">ميلك شيك فراولة</div><div class="item-price">65 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">ميلك شيك نوتيلا</div><div class="item-price">70 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">ميلك شيك اوريو</div><div class="item-price">65 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">ميلك شيك لوتس</div><div class="item-price">65 <span class="currency">جنيه</span></div></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Barista Section -->
-  <div id="barista" class="section">
-    <div class="section-header barista-header">
-      <h2>☕ BARISTA</h2>
-      <div class="subtitle">Taste The Chill</div>
-    </div>
-    <div class="items-grid">
-      <div class="item-card"><div class="item-name">شاي ساخن</div><div class="item-price">20 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">شاي فلفر</div><div class="item-price">25 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">قهوة تركي</div><div class="item-price">20 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">قهوة تركي دوبل</div><div class="item-price">30 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">اعشاب</div><div class="item-price">30 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">قهوة حليب</div><div class="item-price">40 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">قهوة نوتيلا/بندق</div><div class="item-price">50 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">هوت شوكليت</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">اسبريسو</div><div class="item-price">30 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">اسبريسو دبل</div><div class="item-price">35 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">اسبريسو ميكاتو</div><div class="item-price">45 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">اسبريسو دبل ميكاتو</div><div class="item-price">60 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">كابوتشينو</div><div class="item-price">60 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">لاتيه</div><div class="item-price">60 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">هوت سيدر</div><div class="item-price">40 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">نسكافيه</div><div class="item-price">45 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">امريكان كوفي</div><div class="item-price">60 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">هوت موكا</div><div class="item-price">60 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">ايس لاتيه</div><div class="item-price">60 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">ايس كابيتشينو</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">ايس امريكان كوفي</div><div class="item-price">60 <span class="currency">جنيه</span></div></div>
-    </div>
-  </div>
-
-  <!-- Dessert Section -->
-  <div id="dessert" class="section">
-    <div class="section-header dessert-header">
-      <h2>🍰 DESSERT - حلويات</h2>
-      <div class="subtitle">Enjoy Every Bite</div>
-    </div>
-    <div class="drinks-subsection">
-      <h3>🧇 Waffles - وافلز</h3>
-      <div class="items-grid">
-        <div class="item-card"><div class="item-name">وافلز نوتيلا</div><div class="item-price">75 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">وافلز كراميل</div><div class="item-price">70 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">وافلز مكسرات</div><div class="item-price">95 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">وافلز اوريو</div><div class="item-price">80 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">وافلز لوتس</div><div class="item-price">75 <span class="currency">جنيه</span></div></div>
-      </div>
-    </div>
-    <div class="drinks-subsection">
-      <h3>🍨 Ice Cream - ايس كريم</h3>
-      <div class="items-grid">
-        <div class="item-card"><div class="item-name">لوتس ايس كريم</div><div class="item-price">50 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">كلاسيك ايس كريم</div><div class="item-price">45 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">فروت ايس كريم</div><div class="item-price">50 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">اكسترا فليفر</div><div class="item-price">20 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">اكسترا اسبريسو</div><div class="item-price">20 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">اكسترا لبن</div><div class="item-price">20 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">اكسترا نوتيلا</div><div class="item-price">25 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">اكسترا ايس كريم بولة</div><div class="item-price">30 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">اكسترا صوص</div><div class="item-price">25 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">اكسترا فواكه</div><div class="item-price">25 <span class="currency">جنيه</span></div></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <div class="footer">
-    <h3>فتح الله FATHALLA</h3>
-    <p>جودة منذ 1948</p>
-      <p style="margin-top:15px; opacity:0.8;">للطلب والاستفسار</p>
-    <div class="hotline">📞 Hotline: 15260</div>
-    
-  </div>
 </div>
 
 <script>
-  // Hide loading screen
-  window.addEventListener('load', function() {
-    setTimeout(function() {
-      document.getElementById('loadingScreen').style.opacity = '0';
-      setTimeout(function() {
-        document.getElementById('loadingScreen').style.display = 'none';
-      }, 500);
-    }, 1500);
-  });
+// ==========================================================
+// 1. قسم الإعدادات: الباركود والترجمة (قم بالتعديل هنا براحتك)
+// ==========================================================
 
-  function showSection(sectionId) {
-    document.querySelectorAll('.section').forEach(section => {
-      section.classList.remove('active');
-    });
-    document.querySelectorAll('.nav-tab').forEach(tab => {
-      tab.classList.remove('active');
-    });
-    document.getElementById(sectionId).classList.add('active');
-    event.target.classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
+// أضف هنا اسم الصنف والباركود الخاص به (قمت بإضافة أمثلة من ملفاتك)
+const barcodeDB = {
+    "وجبة كفتة مشوية": "2307734000008",
+    "وجبة شيش طاووق": "2307735000007",
+    "كومبو 2 كفته مشوية": "2041810000420",
+    "سلطة خضراء": "1234567890123",
+    "بيتزا بسطرمة": "9876543210987"
+    // يمكنك الاستمرار في إضافة الأصناف هنا بنفس الطريقة...
+};
 
-  // Add floating particles
-  const emojis = ['🍕','🍔','🍟','🌮','🥗','☕','🥤','🍰','🍦','🍩','🍪','🥐','🍞','🧀','🍖','🍗','🥪','🌯','🍝','🍱'];
-  for(let i = 0; i < 20; i++) {
-    const particle = document.createElement('div');
-    particle.className = 'particle';
-    particle.style.left = Math.random() * 100 + '%';
-    particle.style.animationDelay = Math.random() * 20 + 's';
-    particle.style.animationDuration = (15 + Math.random() * 15) + 's';
-    particle.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
-    particle.style.fontSize = (20 + Math.random() * 25) + 'px';
-    document.body.appendChild(particle);
-  }
-</script>
-
-</body>
-    <script>
-    function toggleTheme() {
-        const body = document.body;
-        const btn = document.getElementById('theme-toggle');
-
-        body.classList.toggle('dark-mode');
-
-        if (body.classList.contains('dark-mode')) {
-            btn.innerText = '☀️';
-            localStorage.setItem('theme', 'dark'); 
-        } else {
-            btn.innerText = '🌙';
-            localStorage.setItem('theme', 'light'); 
-        }
-    }
-
-    window.addEventListener('DOMContentLoaded', (event) => {
-        const savedTheme = localStorage.getItem('theme');
-        const btn = document.getElementById('theme-toggle');
-
-        if (savedTheme === 'dark') {
-            document.body.classList.add('dark-mode');
-            btn.innerText = '☀️';
-        }
-    });
-</script>
-</html>
+// قاموس الترجمة (عربي : إنجليزي)
+const dictionary = {
+    "عروض": "Offers",
+    "سلاطات": "Salads",
+    "مقبلات": "Appetizers",
+    "بيتزا": "Pizza",
+    "فطائر": "Pies",
+    "كريب": "Crepes",
+    "مكرونة": "Pasta",
+    "وجبات": "Meals",
+    "مشويات": "Grilled",
+    "شاورما": "Shawarma",
+    "مشروبات": "Drinks",
+    "بارستا": "Barista",
+    "حلويات": "Desserts",
+    "جنيه": "EGP",
+    "سلة المشتريات": "Shopping Cart",
+    "الإجمالي:": "Total:",
+    "الطلبات المحددة والباركود": "Selected Items & Barcodes"
+};
+// إنشاء قاموس عكسي لل
