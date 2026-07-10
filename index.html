@@ -172,9 +172,11 @@ body {
 
 .item-card:hover { transform: translateY(-8px) scale(1.03); box-shadow: 0 20px 50px rgba(0,0,0,0.18); border-color: var(--primary); }
 
-.item-name { font-size: 1.4rem; font-weight: 800; color: var(--dark); margin-bottom: 10px; position: relative; line-height: 1.3; }
+.item-name { font-size: 1.4rem; font-weight: 800; color: var(--dark); margin-bottom: 8px; position: relative; line-height: 1.3; }
 .item-price { font-size: 1.7rem; font-weight: 900; color: var(--primary); text-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
 .item-price .currency { font-size: 0.95rem; color: #888; font-weight: 600; }
+/* تحسين خط المكونات ليكون مقروءاً جداً من الجوال */
+.item-desc { font-size: 15px !important; color: #666 !important; margin: 8px 0 12px 0 !important; line-height: 1.4; font-weight: 600; }
 
 .item-badge {
     display: inline-block;
@@ -219,15 +221,15 @@ body {
 
 /* تنسيقات زر الاتصال المباشر */
 .hotline-btn {
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: var(--gold);
     font-weight: 900;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     display: inline-block;
-    padding: 10px 30px;
+    padding: 12px 35px;
     background: rgba(255,255,255,0.1);
-    border-radius: 15px;
-    margin-top: 10px;
+    border-radius: 20px;
+    margin-top: 15px;
     transition: transform 0.3s ease, background 0.3s ease;
     text-decoration: none;
 }
@@ -236,37 +238,52 @@ body {
     background: rgba(255,255,255,0.2);
 }
 
-/* تنسيقات زر فيسبوك */
-.fb-btn {
-    display: inline-flex;
+/* --- تنسيقات أزرار السوشيال ميديا الدائرية --- */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+.social-btn {
+    display: flex;
     align-items: center;
     justify-content: center;
-    background: #1877F2;
-    color: #fff;
-    padding: 12px 30px;
-    border-radius: 30px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
     text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: bold;
-    box-shadow: 0 4px 15px rgba(24, 119, 242, 0.4);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-top: 10px;
 }
-.fb-btn:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 6px 20px rgba(24, 119, 242, 0.6);
-    color: #fff;
-}
+.social-btn svg { width: 28px; height: 28px; fill: white; }
+.social-btn:hover { transform: translateY(-5px) scale(1.1); }
+
+.fb-btn { background: #1877F2; box-shadow: 0 4px 15px rgba(24, 119, 242, 0.4); }
+.fb-btn:hover { box-shadow: 0 6px 20px rgba(24, 119, 242, 0.6); }
+
+.ig-btn { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); box-shadow: 0 4px 15px rgba(225, 48, 108, 0.4); }
+.ig-btn:hover { box-shadow: 0 6px 20px rgba(225, 48, 108, 0.6); }
+
+.tt-btn { background: #000000; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); border: 2px solid #333; }
+.tt-btn:hover { box-shadow: 0 6px 20px rgba(0, 242, 254, 0.4); border-color:#00f2fe; }
+
+.yt-btn { background: #FF0000; box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4); }
+.yt-btn:hover { box-shadow: 0 6px 20px rgba(255, 0, 0, 0.6); }
 
 ::-webkit-scrollbar { width: 10px; }
 ::-webkit-scrollbar-track { background: var(--light); }
 ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 5px; }
 ::-webkit-scrollbar-thumb:hover { background: #b33930; }
 
+/* --- تحسينات حجم الخط المخصصة لشاشات الجوال --- */
 @media (max-width: 768px) {
-    .items-grid { grid-template-columns: 1fr; }
-    .nav-tab { padding: 12px 20px; font-size: 0.95rem; }
-    .section-header h2 { font-size: 2.2rem; }
+    .items-grid { grid-template-columns: 1fr; gap: 20px; }
+    .nav-tab { padding: 12px 20px; font-size: 1.1rem; }
+    .section-header h2 { font-size: 2.4rem; }
+    .item-name { font-size: 1.5rem; }
+    .item-price { font-size: 1.8rem; }
+    .item-desc { font-size: 16px !important; } /* خط مقروء جداً للمكونات في الجوال */
+    .hotline-btn { font-size: 1.8rem; padding: 10px 25px; }
 }
 
 .loading-screen {
@@ -302,6 +319,7 @@ body.dark-mode .menu-container, body.dark-mode .header { background-color: #2426
 body.dark-mode .nav-tabs { background-color: #2f323a !important; }
 body.dark-mode .item-card { background: #24262d !important; border-color: #2f323a !important; color: #e4e6eb; }
 body.dark-mode .item-name, body.dark-mode .drinks-subsection h3 { color: #f0f0f0 !important; }
+body.dark-mode .item-desc { color: #aaa !important; }
 
 /* --- تنسيقات سلة المشتريات والباركود --- */
 #cart-count {
@@ -361,12 +379,12 @@ body.dark-mode .barcode-font { color: #fff; }
   <div class="header" style="position: relative;">
     <!-- حاوية أزرار اللغة والوضع الليلي -->
     <div style="position: absolute; top: 20px; left: 20px; z-index: 1000; display: flex; gap: 10px;">
-        <button id="theme-toggle" onclick="toggleTheme()" style="background: rgba(255,255,255,0.9); border:none; width: 40px; height: 40px; border-radius: 50%; font-size: 18px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); display: flex; justify-content: center; align-items: center;">🌙</button>
-        <button id="lang-toggle" onclick="toggleLanguage()" style="background: rgba(255,255,255,0.9); border:none; height: 40px; padding: 0 12px; border-radius: 20px; font-size: 14px; font-weight: bold; color: var(--dark); cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); display: flex; justify-content: center; align-items: center;">🌐 EN</button>
+        <button id="theme-toggle" onclick="toggleTheme()" style="background: rgba(255,255,255,0.9); border:none; width: 45px; height: 45px; border-radius: 50%; font-size: 20px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); display: flex; justify-content: center; align-items: center;">🌙</button>
+        <button id="lang-toggle" onclick="toggleLanguage()" style="background: rgba(255,255,255,0.9); border:none; height: 45px; padding: 0 15px; border-radius: 22px; font-size: 15px; font-weight: bold; color: var(--dark); cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); display: flex; justify-content: center; align-items: center;">🌐 EN</button>
     </div>
     
     <!-- أيقونة سلة المشتريات -->
-    <div id="cart-icon" onclick="showSection('cart')" style="position: absolute; top: 20px; right: 20px; background: rgba(255, 255, 255, 0.9); width: 45px; height: 45px; border-radius: 50%; font-size: 22px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 1000; transition: transform 0.2s; display: flex; justify-content: center; align-items: center;">
+    <div id="cart-icon" onclick="showSection('cart')" style="position: absolute; top: 20px; right: 20px; background: rgba(255, 255, 255, 0.9); width: 50px; height: 50px; border-radius: 50%; font-size: 24px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 1000; transition: transform 0.2s; display: flex; justify-content: center; align-items: center;">
         🛒<div id="cart-count">0</div>
     </div>
 
@@ -379,12 +397,46 @@ body.dark-mode .barcode-font { color: #fff; }
             50% { transform: translateY(-4px); text-shadow: 0 0 15px rgba(255,255,255,1); }
         }
         .kitchen-title {
-            text-align: center; color: #ffffff; font-size: 26px; font-weight: 900; 
-            margin-top: 15px; letter-spacing: 3px; font-family: Arial, sans-serif;
+            text-align: center; color: #ffffff; font-size: 28px; font-weight: 900; 
+            margin-top: 20px; letter-spacing: 3px; font-family: Arial, sans-serif;
             animation: floatAndGlow 3s ease-in-out infinite; transition: all 0.3s ease;
+            display: inline-block; cursor: pointer;
+        }
+        .k-letter {
+            position: relative;
+            display: inline-block;
+        }
+        .chef-hat {
+            position: absolute;
+            top: -24px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-15deg);
+            width: 32px;
+            height: 32px;
+            fill: #ffffff;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+            transition: all 0.3s ease;
+        }
+        .kitchen-title:hover {
+            transform: scale(1.08);
+            color: #ffcc00;
+            text-shadow: 0 0 20px rgba(255, 204, 0, 0.8);
+        }
+        .kitchen-title:hover .chef-hat {
+            fill: #ffcc00;
+            transform: translateX(-50%) rotate(0deg) scale(1.1);
+            top: -28px;
         }
     </style>
-    <div class="kitchen-title">KITCHEN MENU</div>
+    
+    <!-- اسم كيتشن منيو مدمج مع قبعة الطاهي (Chef Hat SVG) -->
+    <div class="kitchen-title">
+        <span class="k-letter">
+            <svg class="chef-hat" viewBox="0 0 24 24">
+                <path d="M7 15h10v4a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-4zm11-2c1.66 0 3-1.34 3-3s-1.34-3-3-3c-.15 0-.29.02-.43.05A4.996 4.996 0 0 0 12 2a4.996 4.996 0 0 0-5.57 5.05C6.29 7.02 6.15 7 6 7c-1.66 0-3 1.34-3 3s1.34 3 3 3h12z"/>
+            </svg>K
+        </span>ITCHEN MENU
+    </div>
   </div>  
 
   <!-- Navigation -->
@@ -443,7 +495,6 @@ body.dark-mode .barcode-font { color: #fff; }
             .offer-subtitle { font-size: 14px; margin-top: 10px; font-weight: normal; color: rgba(255, 255, 255, 0.9); }
         </style>
 
-        <!-- حاوية الأيقونات التفاعلية للعروض -->
         <div class="offers-banners-container">
             <div class="offer-banner pizza-offer-banner" onclick="showSection('pizza-offers')">
                 🍕 عرض البيتزا 1+1 🍕<br><span style="font-size: 16px;">Large + Medium Free</span>
@@ -462,12 +513,12 @@ body.dark-mode .barcode-font { color: #fff; }
         </div>       
         
         <div class="items-grid">
-            <div class="item-card"><div class="item-name">كومبو 2 كفته مشوية</div><div class="item-desc" style="font-size: 13px; color: #888; margin: 5px 0;">كلوسلو + فرايز</div><div class="item-price">130 <span class="currency">جنيه</span></div></div>
-            <div class="item-card"><div class="item-name">كومبو 1 كفته، 1 صدور</div><div class="item-desc" style="font-size: 13px; color: #888; margin: 5px 0;">كلوسلو + فرايز</div><div class="item-price">130 <span class="currency">جنيه</span></div></div>
-            <div class="item-card"><div class="item-name">كومبو 1 كفته، 1 شيش</div><div class="item-desc" style="font-size: 13px; color: #888; margin: 5px 0;">كلوسلو + فرايز</div><div class="item-price">130 <span class="currency">جنيه</span></div></div>
-            <div class="item-card"><div class="item-name">عرض وجبة كفته مشوية</div><div class="item-desc" style="font-size: 13px; color: #888; margin: 5px 0;">أرز + مقبلات + مخلل + سلطة + خبز</div><div class="item-price">130 <span class="currency">جنيه</span></div></div>
-            <div class="item-card"><div class="item-name">عرض وجبة الصدور</div><div class="item-desc" style="font-size: 13px; color: #888; margin: 5px 0;">أرز + مقبلات + مخلل + سلطة + خبز</div><div class="item-price">130 <span class="currency">جنيه</span></div></div>
-            <div class="item-card"><div class="item-name">عرض وجبة شيش طاووق</div><div class="item-desc" style="font-size: 13px; color: #888; margin: 5px 0;">أرز + مقبلات + مخلل + سلطة + خبز</div><div class="item-price">130 <span class="currency">جنيه</span></div></div>
+            <div class="item-card"><div class="item-name">كومبو 2 كفته مشوية</div><div class="item-desc">كلوسلو + فرايز</div><div class="item-price">130 <span class="currency">جنيه</span></div></div>
+            <div class="item-card"><div class="item-name">كومبو 1 كفته، 1 صدور</div><div class="item-desc">كلوسلو + فرايز</div><div class="item-price">130 <span class="currency">جنيه</span></div></div>
+            <div class="item-card"><div class="item-name">كومبو 1 كفته، 1 شيش</div><div class="item-desc">كلوسلو + فرايز</div><div class="item-price">130 <span class="currency">جنيه</span></div></div>
+            <div class="item-card"><div class="item-name">عرض وجبة كفته مشوية</div><div class="item-desc">أرز + مقبلات + مخلل + سلطة + خبز</div><div class="item-price">130 <span class="currency">جنيه</span></div></div>
+            <div class="item-card"><div class="item-name">عرض وجبة الصدور</div><div class="item-desc">أرز + مقبلات + مخلل + سلطة + خبز</div><div class="item-price">130 <span class="currency">جنيه</span></div></div>
+            <div class="item-card"><div class="item-name">عرض وجبة شيش طاووق</div><div class="item-desc">أرز + مقبلات + مخلل + سلطة + خبز</div><div class="item-price">130 <span class="currency">جنيه</span></div></div>
         </div>
   </div>
 
@@ -831,22 +882,40 @@ body.dark-mode .barcode-font { color: #fff; }
     </div>
   </div>
 
-  <!-- Footer المُعدل (زر اتصال مباشر وأيقونة فيسبوك) -->
+  <!-- Footer -->
   <div class="footer">
     <h3>فتح الله FATHALLA</h3>
     <p>جودة منذ 1948</p>
     <p style="margin-top:15px; opacity:0.8;">للطلب والاستفسار</p>
     
-    <!-- زر الاتصال المباشر الجديد -->
+    <!-- زر الاتصال المباشر -->
     <a href="tel:15260" class="hotline-btn">📞 Hotline: 15260</a>
     
-    <!-- قسم فيسبوك الجديد -->
+    <!-- قسم السوشيال ميديا -->
     <div style="margin-top: 35px; padding-top: 25px; border-top: 1px solid rgba(255,255,255,0.1);">
-        <p style="font-size: 1.2rem; margin-bottom: 10px; font-weight: bold;">لمتابعه احدث العروض</p>
-        <a href="https://www.facebook.com/search/top?q=fathalla%20market" target="_blank" class="fb-btn">
-            <svg style="width: 24px; height: 24px; margin-right: 10px; fill: white;" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
-            Facebook
-        </a>
+        <p style="font-size: 1.2rem; font-weight: bold; margin-bottom: 5px;">لمتابعه احدث العروض</p>
+        
+        <div class="social-links">
+            <!-- أيقونة فيسبوك -->
+            <a href="https://www.facebook.com/search/top?q=fathalla%20market" target="_blank" rel="noopener noreferrer" class="social-btn fb-btn" title="Facebook">
+                <svg viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
+            </a>
+            
+            <!-- أيقونة إنستجرام -->
+            <a href="https://www.instagram.com/fathalla.market/" target="_blank" rel="noopener noreferrer" class="social-btn ig-btn" title="Instagram">
+                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            
+            <!-- أيقونة تيك توك -->
+            <a href="https://www.tiktok.com/@aswaqfathallamark" target="_blank" rel="noopener noreferrer" class="social-btn tt-btn" title="TikTok">
+                <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 2.12-.97 4.15-2.51 5.56-1.55 1.41-3.62 2.22-5.74 2.21-2.12 0-4.18-.8-5.74-2.2-1.54-1.42-2.43-3.46-2.5-5.58-.02-1.32.18-2.65.62-3.87.43-1.22 1.1-2.35 1.98-3.26 1.05-1.07 2.45-1.78 3.94-2.12.34-.08.68-.13 1.03-.17v4.03c-1.12.16-2.16.7-2.92 1.51-.76.81-1.19 1.91-1.18 3.05.01 1.14.44 2.24 1.21 3.05.77.81 1.83 1.35 2.96 1.5 1.14.15 2.3-.12 3.23-.74.93-.61 1.6-1.58 1.84-2.69.09-.43.14-.87.15-1.31.02-3.19.01-6.39.02-9.59.01-1.31.01-2.62.01-3.93z"/></svg>
+            </a>
+            
+            <!-- أيقونة يوتيوب -->
+            <a href="https://www.youtube.com/@fathallamarket2432" target="_blank" rel="noopener noreferrer" class="social-btn yt-btn" title="YouTube">
+                <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+        </div>
     </div>
   </div>
 </div>
@@ -973,7 +1042,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// --- قاموس الترجمة الشامل (مُحدث بالكامل) ---
+// --- قاموس الترجمة الشامل ---
 const dictionary = {
     "PIE - فطائر": "PIE", "CREPE - كريب": "CREPE", "PASTA - مكرونة": "PASTA",
     "MEALS - وجبات": "MEALS", "GRILLED - مشويات": "GRILLED", "DRINKS - مشروبات": "DRINKS",
@@ -1039,16 +1108,8 @@ const dictionary = {
     "بطاطس جبنة": "Cheese Fries", "ارز بسمتي": "Basmati Rice", "ممبار": "Mombar",
     "كبيبة لحم": "Meat Kobeba", "ورق عنب أرز": "Stuffed Vine Leaves", "مشكل مقبلات": "Mixed Appetizers",
     
-    "بيتزا بسطرمة": "Pastrami Pizza", "بيتزا مارجريتا": "Margherita Pizza", "بيتزا ببروني": "Pepperoni Pizza",
-    "بيتزا مشكل جبن": "Mixed Cheese Pizza", "بيتزا مشكل لحوم": "Mixed Meat Pizza", "بيتزا سجق": "Sausage Pizza",
-    "بيتزا جمبري": "Shrimp Pizza", "بيتزا شاورما فراخ": "Chicken Shawarma Pizza", "بيتزا سي فود": "Seafood Pizza",
-    "بيتزا دجاج رانش": "Chicken Ranch Pizza", "بيتزا دجاج باربيكيو": "Chicken BBQ Pizza",
-    
     "فطيرة بغاشة": "Baghasha Pie", "فطيرة سكر": "Sugar Pie", "فطيرة نوتيلا": "Nutella Pie",
     "فطيرة كاستر": "Custard Pie", "فطيرة لوتس": "Lotus Pie", "فطيرة اوريو": "Oreo Pie",
-    "فطيرة بسطرمة": "Pastrami Pie", "فطيرة خضروات": "Vegetable Pie", "فطيرة دجاج": "Chicken Pie",
-    "فطيرة مشكل جبن": "Mixed Cheese Pie", "فطيرة مشكل لحوم": "Mixed Meat Pie", "فطيرة سجق": "Sausage Pie",
-    "فطيرة سي فود": "Seafood Pie", "فطيرة شاورما فراخ": "Chicken Shawarma Pie", "فطيرة جمبري": "Shrimp Pie",
     
     "كريب كريسبي": "Crispy Crepe", "كريب سجق": "Sausage Crepe", "كريب مشكل لحوم": "Mixed Meat Crepe",
     "كريب بسطرمة": "Pastrami Crepe", "كريب سي فود": "Seafood Crepe", "كريب شاورما فراخ": "Chicken Shawarma Crepe",
@@ -1094,11 +1155,9 @@ const dictionary = {
     "اكسترا فليفر": "Extra Flavor", "اكسترا اسبريسو": "Extra Espresso", "اكسترا لبن": "Extra Milk", "اكسترا نوتيلا": "Extra Nutella",
     "اكسترا ايس كريم بولة": "Extra Ice Cream Scoop", "اكسترا صوص": "Extra Sauce", "اكسترا فواكه": "Extra Fruits",
     
-    "Enjoy Every Bite": "Enjoy Every Bite", "حلويات ومخبوزات | Enjoy Every Bite": "Desserts & Pastries | Enjoy Every Bite",
-    "Taste The Chill": "Taste The Chill", "فتح الله FATHALLA": "Fathalla",
+    "Enjoy Every Bite": "Enjoy Every Bite", "Taste The Chill": "Taste The Chill", "فتح الله FATHALLA": "Fathalla",
     "جودة منذ 1948": "Quality since 1948", "للطلب والاستفسار": "For orders and inquiries",
-    "الأكثر طلباً": "Best Seller", "قيمة رائعة": "Great Value",
-    "تمت الإضافة للسلة ✔️": "Added to Cart ✔️"
+    "الأكثر طلباً": "Best Seller", "قيمة رائعة": "Great Value", "تمت الإضافة للسلة ✔️": "Added to Cart ✔️"
 };
 const revDictionary = Object.fromEntries(Object.entries(dictionary).map(([k,v]) => [v,k]));
 
@@ -1112,7 +1171,6 @@ function toggleLanguage() {
         if (node.nodeType === 3) {
             let text = node.nodeValue.trim();
             if (text) {
-                // إزالة الإيموجي للمطابقة الصحيحة للترجمة
                 let cleanText = text.replace(/([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g, '').trim();
                 if (isEnglish && dictionary[cleanText]) {
                     node.nodeValue = node.nodeValue.replace(cleanText, dictionary[cleanText]);
